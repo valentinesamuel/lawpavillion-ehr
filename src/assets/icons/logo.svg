@@ -1,0 +1,20 @@
+<svg width="62" height="69" viewBox="0 0 62 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_420_19)">
+<rect x="14" y="14" width="9.09362" height="3.43537" fill="#04194D"/>
+<rect x="14" y="19.2541" width="9.09362" height="3.63745" fill="#04194D"/>
+<rect x="14" y="24.7103" width="9.09362" height="3.43537" fill="#04194D"/>
+<rect x="14" y="29.9643" width="9.09362" height="3.43537" fill="#04194D"/>
+<rect x="14" y="35.4205" width="9.09362" height="3.43537" fill="#04194D"/>
+<rect x="14" y="40.6746" width="9.09362" height="3.43537" fill="#04194D"/>
+<rect x="14" y="45.9287" width="9.09362" height="3.63745" fill="#04194D"/>
+<rect x="14" y="51.3849" width="9.09362" height="3.43537" fill="#04194D"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24.6711 40.2704H31.2476L38.8716 54.8202H47.5433L38.5807 38.9318C42.8874 37.0113 46.2047 32.7045 46.2047 27.0592C46.2047 19.3769 40.5012 14.0808 32.1787 14.0808H24.5547L24.6711 20.7155V33.6357V40.2704Z" fill="#04194D"/>
+</g>
+<defs>
+<filter id="filter0_f_420_19" x="0" y="0" width="61.5433" height="68.8202" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7" result="effect1_foregroundBlur_420_19"/>
+</filter>
+</defs>
+</svg>
