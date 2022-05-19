@@ -1,9 +1,10 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { PatientsState } from "./patient.state";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { PatientsState } from './patient.state';
 
 export const PATIENT_STATE_NAME = 'patients';
-const getPostsState = createFeatureSelector<PatientsState>(PATIENT_STATE_NAME);
+const getPatientsState =
+  createFeatureSelector<PatientsState>(PATIENT_STATE_NAME);
 
-export const getPosts = createSelector(getPostsState, (state) => {
+export const getPatients = createSelector(getPatientsState, (state) => {
   return state.patients;
 });
