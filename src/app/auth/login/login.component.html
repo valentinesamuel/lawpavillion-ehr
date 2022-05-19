@@ -1,1 +1,22 @@
-<p>login works!</p>
+<section class="container">
+    <aside class="doc-side">
+        <img class="logo" src="../../../assets/icons/logo.svg" alt="logo">
+        <img class="doc" src="../../../assets/images/doc.svg" alt="doc">
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.ipsum dolor sit.
+        </p>
+    </aside>
+    <main class="form">
+        <h2>Sign in your <span>EHR
+
+
+            </span> account</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="input">
+
+            <input type="email" class="email" formControlName="email">
+            <input type="password" class="password" formControlName="password">
+            <button class="btn-signin" type="submit">Sign In</button>
+            <p class="signup-cta">Dont have an account? <span>Meet up with the IT guy</span></p>
+        </form>
+    </main>
+</section>

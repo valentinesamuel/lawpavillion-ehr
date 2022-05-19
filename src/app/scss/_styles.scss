@@ -1,0 +1,19 @@
+.btn {
+    border-radius: 10px;
+    border: none;
+    color: $white;
+    background-color: $btn-blue;
+
+}
+
+.input-text {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 0.6px solid #D1D1D1;
+
+    &::placeholder {
+        font-size: $fs-18;
+        color: red;
+    }
+
+}

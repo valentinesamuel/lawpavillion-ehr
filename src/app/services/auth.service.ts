@@ -15,17 +15,17 @@ export class AuthService {
 
   login(email: string, password: string): Observable<AuthResponseData> {
     return this.http.post<AuthResponseData>(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASE_API_KEY}`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.FIREBASE_API_KEY}`,
       { email, password, returnSecureToken: true }
     );
   }
 
-  //   signUp(email: string, password: string): Observable<AuthResponseData> {
-  //     return this.http.post<AuthResponseData>(
-  //       `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASE_API_KEY}`,
-  //       { email, password, returnSecureToken: true }
-  //     );
-  //   }
+    // signUp(email: string, password: string): Observable<AuthResponseData> {
+    //   return this.http.post<AuthResponseData>(
+    //     `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASE_API_KEY}`,
+    //     { email, password, returnSecureToken: true }
+    //   );
+    // }
 
   formatUser(data: AuthResponseData) {
     const expirationDate = new Date(
