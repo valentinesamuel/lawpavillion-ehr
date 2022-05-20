@@ -1,23 +1,25 @@
-<form class="inner">
+<form class="inner" [formGroup]="PatientData" (ngSubmit)="onRegisterPatient()">
     <ul>
 
-        <li class="step" (click)="selectStep(1)" [ngClass]="step == 1 ? 'active-step' : ''"> 1<span
-                class="label">gfrg</span></li>
+        <li class="step completed-step" [ngClass]="step == 1 ? 'active-step' : ''"> 1<span
+                class="label">Patient Details</span></li>
 
-        <div class="line"></div>
+        <div class="line" [ngClass]="step == 2 ? 'active-line' : ''"></div>
 
-        <li class="step" (click)="selectStep(2)" [ngClass]="step == 2 ? 'active-step' : ''">2 <span
-                class="label">gfrg</span></li>
+        <li class="step" [ngClass]="step == 2 ? 'active-step' : ''">2 <span
+                class="label">Other</span></li>
 
-        <div class="line"></div>
+        <div class="line" [ngClass]="step == 3 ? 'active-line' : ''"></div>
 
-        <li class="step" (click)="selectStep(3)" [ngClass]="step == 3 ? 'active-step' : ''"> 3<span
-                class="label">gfrg</span></li>
+        <li class="step"  [ngClass]="step == 3 ? 'active-step' : ''"> 3<span
+                class="label">Next of Kin</span></li>
 
-        <div class="line"></div>
+    <div class="line" [ngClass]="step == 4 ? 'active-line' : ''"></div>
 
-        <li class="step" (click)="selectStep(4)" [ngClass]="step == 4 ? 'active-step' : ''"> 4<span
-                class="label">gfrg</span></li>
+    <!-- add completed step class when completed -->
+        <li class="step " [ngClass]="step == 4 ? 'active-step' : ''"> {{completed ? "icon": "4"}}
+            <span
+                class="label">HMO</span></li>
     </ul>
 
     <section class="content">
@@ -25,8 +27,10 @@
             <div class="form-container">
                 <div class="upload">
                     <div class="uploader">
-                        <img src="../../../assets/icons/picture-upload.svg" alt="uploader">
-                        <p class="upload-cta">Drag & Drop your pciture here</p>
+                        <input type="file" (change)="getFile($event)" class="file">
+                        <img [src]="imageUrl ? imageUrl : '../../../assets/icons/picture-upload.svg'" alt="uploader">
+                        <p class="upload-cta">Drag & Drop your picture here</p>
+                      
                         <span>OR</span>
                         <button class="upload-button">upload</button>
                     </div>
@@ -35,18 +39,17 @@
                     <select class="select">
                         <option class="option" *ngFor="let title of titles" [value]="title">{{title}}</option>
                     </select>
-                    <input type="text" placeholder="Patient Surname" class="name">
-                    <input type="text" placeholder="Patient First Name" class="name">
+                    <input type="text" placeholder="Patient Surname" class="name" formControlName="surname">
+                    <input type="text" placeholder="Patient First Name" formControlName="firstName" class="name">
                     <input type="text" placeholder="Patient Middle Name" class="name">
-                    <input type="text" placeholder="Patient Phone Number" class="name">
+                    <input type="text" placeholder="Patient Phone Number" class="name" formControlName="phoneNumber">
                     <input type="text" placeholder="Patient Email" class="name">
-                    <select class="gender-select">
+                    <select class="gender-select"  (change)="changeGender($event)">
                         <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
                     </select>
                     <input class="name" type="text" placeholder="Date of Birth (mm/dd/yy)" onfocus="(this.type='date')">
-                    <div style="display: block;">
-                    </div>
-                    <textarea class="address" placeholder="Patient Address"></textarea>
+
+                    <textarea class="address" placeholder="Patient Address" formControlName="address"></textarea>
 
 
                 </div>
@@ -87,7 +90,7 @@
                     </option>
                 </select>
             </section>
-          
+
         </section>
         <section class="form-generic" *ngIf="step == 3">
 
@@ -110,7 +113,7 @@
         </section>
     </section>
     <div class="btns">
-        <button class="back" *ngIf="step != 1">Back</button>
-        <button class="continue">Continue</button>
+        <button class="back" (click)="goBack()" *ngIf="step != 1">Back</button>
+        <button class="continue" (click)="continue()" type="submit">{{step == 4 ? 'Add Patient' : 'Continue'}}</button>
     </div>
 </form>

@@ -6,17 +6,14 @@ import { AppState } from 'src/app/store/app.state';
 import { loadPatients } from '../state/patient.action';
 import { getPatients } from '../state/patient.selector';
 
-
-
 @Component({
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
   styleUrls: ['./patient-list.component.scss'],
 })
 export class PatientListComponent implements OnInit {
-  patients: Observable<Patient[]> | Patient[] = [
-   
-  ];
+  displayedPatient: any = [];
+  patients: any = [];
   displayedColumns: string[] = [
     'image',
     'name',
@@ -30,11 +27,19 @@ export class PatientListComponent implements OnInit {
 
   ngOnInit(): void {
     this.patients = this.store.select(getPatients);
+    this.patients.forEach((pat: any) => {
+      let patientImage = new Image();
+      patientImage.src = pat.image;
+      const parsedImagePatient = { ...pat, image: patientImage };
+      // console.log(parsedImagePatient);
+    });
     this.store.dispatch(loadPatients());
+    console.log(this.displayedPatient);
   }
+  // this.displayedPatient = this.displayedPatient[1]
+  // console.log(this.displayedPatient);
 
-  viewProfile(){
-console.log('go to profile');
-
+  viewProfile() {
+    console.log('go to profile');
   }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { addPatient } from '../state/patient.action';
 
 @Component({
   selector: 'app-register-patient',
@@ -7,6 +10,9 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./register-patient.component.scss'],
 })
 export class RegisterPatientComponent implements OnInit {
+  completed = false
+  file: any;
+  imageUrl: '';
   step = 1;
   selected: any;
   titles = ['Mr', 'Mrs', 'Master', 'Miss'];
@@ -29,16 +35,67 @@ export class RegisterPatientComponent implements OnInit {
   relationship = ['mother', 'father', 'brother', 'sister'];
   sponsorBillingPolicy = ['tied', 'owed', 'omo', 'e choke'];
 
-  addPatientForm:FormGroup
-
-  constructor() {}
+  PatientData: FormGroup;
+  constructor(private store:Store<AppState>) {}
 
   ngOnInit(): void {
-
-
+    this.PatientData = new FormGroup({
+      address: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required]),
+      image: new FormControl('', [Validators.required]),
+    });
   }
-  selectStep(step: any) {
-    this.step = step;
-    this.selected = !this.selected;
+
+
+  getFile(event: any) {
+    this.file = event.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+      this.PatientData.value.image = event.target.result;
+    };
+  }
+
+  changeGender(event: any) {
+    this.PatientData.value.gender = event.target.value;
+  }
+
+  onRegisterPatient() {
+    // to register
+    console.log('re');
+    if (this.step > 4) {
+     const unparsedPatientData = this.PatientData.value;
+     const userAge = Math.floor(Math.random() * (150 + 1));
+     const patient = {
+       ...unparsedPatientData,
+       name: unparsedPatientData.firstName + ' ' + unparsedPatientData.surname,
+       age: userAge,
+       image:this.imageUrl
+     };
+      this.step= 4
+      console.log(patient);
+      this.store.dispatch(addPatient({patient}))
+   }
+ 
+  }
+  continue() {
+   if (this.step < 5 || this.step === 1) {
+     this.step = this.step + 1;
+   } else if (this.step > 4) {
+  
+     console.log('registered');
+   }
+   console.log(this.step);
+}
+  goBack() {
+    
+    if (this.step > 1 ) {
+      this.step = this.step - 1;
+    }
   }
 }

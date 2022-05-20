@@ -2,8 +2,12 @@
 
 .line {
     width: 204px;
-    height: 1px;
+    height: 2px;
     background-color: black;
+}
+
+.active-line{
+    background-color: $btn-blue;
 }
 
 ul {
@@ -13,7 +17,6 @@ ul {
     justify-content: center;
 
     li {
-        // display: flex;
         list-style-type: none;
         padding: 14px 20px;
         font-size: $fs-14;
@@ -28,9 +31,16 @@ ul {
     .label {
         position: absolute;
         top: 120%;
-        left: 25%;
+        left: -20%;
+        width: max-content;
         color: $text-disabled-gray;
     }
+
+.completed-step{
+    border: none;
+    color: $white;
+background-color: $btn-blue;
+}
 
     .active-step {
         color: $white;
@@ -75,11 +85,21 @@ ul {
     border-radius: 11.8754px;
     align-items: center;
     width: max-content;
+    position: relative;
     padding: 2.8rem 2.5rem;
 
     img {
         width: 67px;
         padding-bottom: 1.5rem;
+    }
+
+    .file {
+        opacity: 0;
+        position: absolute;
+        background-color: red;
+        width: auto;
+        top: 0;
+        height: 100%;
     }
 
     .upload-cta,

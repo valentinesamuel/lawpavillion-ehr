@@ -18,7 +18,8 @@ export class PatientService {
       );
   }
 
-  addPost(patient:Patient): Observable<{ patient: Patient }> {
+  addPatient(patient: Patient): Observable<{ patient: Patient }> {
+    // const patient ={}
     return this.http.post<{ patient: Patient }>(
       `https://lawpavillion-patient-api.herokuapp.com/patients`,
       patient

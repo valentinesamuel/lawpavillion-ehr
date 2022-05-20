@@ -13,7 +13,7 @@ export class PatientEffect {
       ofType(loadPatients),
       mergeMap((action) => {
         return this.patientService.getPatients().pipe(
-          map((patients) => {          
+          map((patients) => {   
             return loadPatientsSuccess({ patients });
           })
         );
@@ -26,7 +26,7 @@ export class PatientEffect {
       return this.action$.pipe(
         ofType(addPatient),
         mergeMap((action) => {
-          return this.patientService.addPost(action.patient).pipe(
+          return this.patientService.addPatient(action.patient).pipe(
             map((data) => {
             const patient = { ...action.patient, id: data.patient.id };
               return addPatientSuccess({ patient });
