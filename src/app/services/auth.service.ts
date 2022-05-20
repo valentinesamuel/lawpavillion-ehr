@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { autoLogout } from '../auth/state/auth.action';
 import { AuthResponseData } from '../models/auth-response.model';
 import { User } from '../models/user.model';

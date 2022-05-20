@@ -36,10 +36,7 @@ ul {
         color: $text-disabled-gray;
     }
 
-.completed-step{
-    border: none;
-    color: $white;
-background-color: $btn-blue;
+
 }
 
     .active-step {
@@ -59,12 +56,11 @@ background-color: $btn-blue;
             top: -80%;
             left: 30%;
         }
-    }
+    
 }
 
 .content {
-    padding-top: 6.8rem;
-    padding-left: 34px;
+    padding-top: 6.8rem 0 0 34px;
     margin-bottom: 2rem;
     position: relative;
     height: max-content;

@@ -13,6 +13,8 @@ export class PatientHomeComponent implements OnInit {
 
   ngOnInit(): void {}
   onLogout(event: Event) {
+    console.log('fwf');
+    
     event.preventDefault();
     this.store.dispatch(autoLogout());
   }
