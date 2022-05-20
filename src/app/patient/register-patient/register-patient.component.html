@@ -1,1 +1,37 @@
-<p>register-patient works!</p>
+<section class="inner">
+    <ul>
+
+        <li class="step" (click)="selectStep(1)" [ngClass]="step == 1 ? 'active-step' : ''"> 1<span
+                class="label">gfrg</span></li>
+
+        <div class="line"></div>
+
+        <li class="step" (click)="selectStep(2)" [ngClass]="step == 2 ? 'active-step' : ''">2 <span
+                class="label">gfrg</span></li>
+
+        <div class="line"></div>
+
+        <li class="step" (click)="selectStep(3)" [ngClass]="step == 3 ? 'active-step' : ''"> 3<span
+                class="label">gfrg</span></li>
+
+        <div class="line"></div>
+
+        <li class="step" (click)="selectStep(4)" [ngClass]="step == 4 ? 'active-step' : ''"> 4<span
+                class="label">gfrg</span></li>
+    </ul>
+
+    <section class="content">
+        <section class="form" *ngIf="step == 1">
+            <p>step1</p>
+        </section>
+        <section class="form" *ngIf="step == 2">
+            <p>step2</p>
+        </section>
+        <section class="form" *ngIf="step == 3">
+            <p>step3</p>
+        </section>
+        <section class="form" *ngIf="step == 4">
+            <p>step4</p>
+        </section>
+    </section>
+</section>

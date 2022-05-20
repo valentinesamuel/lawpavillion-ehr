@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -12,7 +11,8 @@ import { patientsReducer } from './state/patient.reducer';
 import { PATIENT_STATE_NAME } from './state/patient.selector';
 import { PatientHomeComponent } from './patient-home/patient-home.component';
 import { HeaderComponent } from '../shared/header/header.component';
-import {MatTableModule} from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table'
+import {MatStepperModule} from '@angular/material/stepper'
 
 
 const routes: Routes = [
@@ -33,7 +33,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     MatTableModule,
-    RouterModule.forChild(routes),
+     RouterModule.forChild(routes),
     StoreModule.forFeature(PATIENT_STATE_NAME, patientsReducer),
     EffectsModule.forFeature([PatientEffect]),
   ],

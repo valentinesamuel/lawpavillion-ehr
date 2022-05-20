@@ -1,0 +1,53 @@
+@import '../../scss/variables';
+
+.line {
+    width: 204px;
+    height: 1px;
+    background-color: black;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    margin-top: 92px;
+    justify-content: center;
+
+    li {
+        // display: flex;
+        list-style-type: none;
+        padding: 14px 20px;
+        font-size: $fs-14;
+        font-weight: $fw-500;
+        color: $disabled-grey;
+        border-radius: 50%;
+        position: relative;
+        border: 1px solid $disabled-grey;
+
+    }
+
+    .label {
+        position: absolute;
+        top: 120%;
+        left: 25%;
+        color: $text-disabled-gray;
+    }
+
+    .active-step {
+        color: $white;
+        border: none;
+        background-color: $btn-blue;
+ position: relative;
+
+    .label {
+            color: $black;
+
+        }
+
+        &::before {
+            content: url('../../../assets/icons/indicator.svg');
+            position: absolute;
+            top: -80%;
+            left: 30%;
+        }
+    }
+}

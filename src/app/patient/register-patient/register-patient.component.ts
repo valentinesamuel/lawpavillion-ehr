@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-register-patient',
   templateUrl: './register-patient.component.html',
-  styleUrls: ['./register-patient.component.scss']
+  styleUrls: ['./register-patient.component.scss'],
 })
 export class RegisterPatientComponent implements OnInit {
+  step = 1;
+  selected:any
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void { }
+  selectStep(step: any) {
+    this.step = step
+    this.selected = !this.selected
   }
-
 }
