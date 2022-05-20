@@ -1,13 +1,12 @@
 <app-header></app-header>
 <section class="container">
     <h3 class="title">Patient's List</h3>
-    <table mat-table [dataSource]="patients " class="mat-elevation-z8 demo-table">
+    <table mat-table [dataSource]="patients" class="mat-elevation-z8 demo-table">
         <!-- avatar Column -->
         <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef class="header-cell"> </th>
             <td mat-cell class="image-cell" *matCellDef="let element">
-                <!-- <img src="https://lawpavillion-patient-api.herokuapp.com/assets/images/{{element.image}}" -->
-                <img [src]="https://lawpavillion-patient-api.herokuapp.com/assets/images/{{element.image}}"
+                <img src="https://lawpavillion-patient-api.herokuapp.com/assets/images/{{element.image}}"
                     alt="album-image">
             </td>
         </ng-container>

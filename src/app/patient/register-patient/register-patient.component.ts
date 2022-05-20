@@ -66,7 +66,7 @@ export class RegisterPatientComponent implements OnInit {
   }
 
   onRegisterPatient() {
-    // to register
+
     console.log('re');
     if (this.step > 4) {
      const unparsedPatientData = this.PatientData.value;

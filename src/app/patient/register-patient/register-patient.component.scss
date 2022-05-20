@@ -207,7 +207,7 @@ background-color: $btn-blue;
 .continue-btn {
     background-color: $btn-blue;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     padding: 1.3rem 6rem;
     border-radius: 10px;
@@ -224,7 +224,7 @@ background-color: $btn-blue;
 
 .btns {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     position: absolute;
     bottom: 3%;
     right: 6%;

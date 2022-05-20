@@ -31,13 +31,12 @@ export class PatientListComponent implements OnInit {
       let patientImage = new Image();
       patientImage.src = pat.image;
       const parsedImagePatient = { ...pat, image: patientImage };
-      // console.log(parsedImagePatient);
+     
     });
     this.store.dispatch(loadPatients());
     console.log(this.displayedPatient);
   }
-  // this.displayedPatient = this.displayedPatient[1]
-  // console.log(this.displayedPatient);
+
 
   viewProfile() {
     console.log('go to profile');
