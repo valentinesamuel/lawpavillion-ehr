@@ -36,9 +36,9 @@ ul {
         color: $white;
         border: none;
         background-color: $btn-blue;
- position: relative;
+        position: relative;
 
-    .label {
+        .label {
             color: $black;
 
         }
@@ -49,5 +49,46 @@ ul {
             top: -80%;
             left: 30%;
         }
+    }
+}
+
+.content {
+    padding-top: 6.8rem;
+}
+
+.uploader {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../../assets/images/uploader-doted.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 11.8754px;
+    align-items: center;
+    width: max-content;
+    padding: 2.8rem 2.5rem;
+
+    img {
+        width: 67px;
+        padding-bottom: 1.5rem;
+    }
+
+    .upload-cta,
+    span {
+        font-weight: $fw-500;
+        font-size: $fs-14;
+        color: $hint-blue;
+        margin-bottom: .4rem;
+    }
+
+
+    .upload-button {
+        padding: .93rem 3rem;
+        background-color: $btn-blue;
+        border: none;
+        color: $white;
+        font-weight: $fw-500;
+        box-shadow: 0px 12px 24px -5px rgba(44, 97, 228, 0.33);
+        border-radius: 8px;
     }
 }

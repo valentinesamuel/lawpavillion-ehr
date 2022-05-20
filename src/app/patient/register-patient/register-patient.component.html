@@ -22,7 +22,19 @@
 
     <section class="content">
         <section class="form" *ngIf="step == 1">
-            <p>step1</p>
+            <form class="form-container">
+                <div class="upload">
+                    <div class="uploader">
+                        <img src="../../../assets/icons/picture-upload.svg" alt="uploader">
+                        <p class="upload-cta">Drag & Drop your pciture here</p>
+                        <span>OR</span>
+                        <button class="upload-button">upload</button>
+                    </div>
+                </div>
+                <div class="form">
+
+                </div>
+            </form>
         </section>
         <section class="form" *ngIf="step == 2">
             <p>step2</p>
