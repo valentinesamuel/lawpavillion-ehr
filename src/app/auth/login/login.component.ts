@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { loginStart } from '../state/auth.action';
@@ -11,7 +12,7 @@ import { loginStart } from '../state/auth.action';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private router:Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     console.log(email, password);
-
+this.router.navigate(['/patients/patient'])
     // this.store.dispatch(setLoadingSpinner({ status: true }));
-    this.store.dispatch(loginStart({ email, password }));
+    // this.store.dispatch(loginStart({ email, password }));
   }
 }
