@@ -1,1 +1,119 @@
-<p>register-patient works!</p>
+<form class="inner" [formGroup]="PatientData" (ngSubmit)="onRegisterPatient()">
+    <ul>
+
+        <li class="step completed-step" [ngClass]="step == 1 ? 'active-step' : ''"> 1<span
+                class="label">Patient Details</span></li>
+
+        <div class="line" [ngClass]="step == 2 ? 'active-line' : ''"></div>
+
+        <li class="step" [ngClass]="step == 2 ? 'active-step' : ''">2 <span
+                class="label">Other</span></li>
+
+        <div class="line" [ngClass]="step == 3 ? 'active-line' : ''"></div>
+
+        <li class="step"  [ngClass]="step == 3 ? 'active-step' : ''"> 3<span
+                class="label">Next of Kin</span></li>
+
+    <div class="line" [ngClass]="step == 4 ? 'active-line' : ''"></div>
+
+    <!-- add completed step class when completed -->
+        <li class="step " [ngClass]="step == 4 ? 'active-step' : ''"> {{completed ? "icon": "4"}}
+            <span
+                class="label">HMO</span></li>
+    </ul>
+
+    <section class="content">
+        <section class="form-1" *ngIf="step == 1">
+            <div class="form-container">
+                <div class="upload">
+                    <div class="uploader">
+                        <input type="file" (change)="getFile($event)" class="file">
+                        <img [src]="imageUrl ? imageUrl : '../../../assets/icons/picture-upload.svg'" alt="uploader">
+                        <p class="upload-cta">Drag & Drop your picture here</p>
+                      
+                        <span>OR</span>
+                        <button class="upload-button">upload</button>
+                    </div>
+                </div>
+                <div class="form">
+                    <select class="select">
+                        <option class="option" *ngFor="let title of titles" [value]="title">{{title}}</option>
+                    </select>
+                    <input type="text" placeholder="Patient Surname" class="name" formControlName="surname">
+                    <input type="text" placeholder="Patient First Name" formControlName="firstName" class="name">
+                    <input type="text" placeholder="Patient Middle Name" class="name">
+                    <input type="text" placeholder="Patient Phone Number" class="name" formControlName="phoneNumber">
+                    <input type="text" placeholder="Patient Email" class="name">
+                    <select class="gender-select"  (change)="changeGender($event)">
+                        <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                    </select>
+                    <input class="name" type="text" placeholder="Date of Birth (mm/dd/yy)" onfocus="(this.type='date')">
+
+                    <textarea class="address" placeholder="Patient Address" formControlName="address"></textarea>
+
+
+                </div>
+            </div>
+        </section>
+        <section class="form-generic" *ngIf="step == 2">
+            <section>
+                <select class="long-select">
+                    <option value="">Ethnicity</option>
+                    <option *ngFor="let ethic of ethnicities" [value]="ethic">{{ethic}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Religion</option>
+                    <option *ngFor="let relig of religion" [value]="relig">{{relig}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Marital Status</option>
+                    <option *ngFor="let maritalStats of maritalStatus" [value]="maritalStats">{{maritalStats}}</option>
+                </select>
+                <input type="text" placeholder="Occupation" class="long-name">
+                <input type="text" placeholder="Blood Group" class="short-name">
+                <input type="text" placeholder="Patient Type" class="long-name">
+                <select class="long-select">
+                    <option value="">Nationality</option>
+                    <option *ngFor="let nation of nationality" [value]="nation">{{nation}}</option>
+                </select>
+                <select class="gender-select">
+                    <option value="">State of Origin</option>
+                    <option *ngFor="let origin of stateOfOrigin" [value]="origin">{{origin}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Local Government</option>
+                    <option *ngFor="let lga of localGovernment" [value]="lga">{{lga}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">State of Residence</option>
+                    <option *ngFor="let residentState of stateofResidence" [value]="residentState">{{residentState}}
+                    </option>
+                </select>
+            </section>
+
+        </section>
+        <section class="form-generic" *ngIf="step == 3">
+
+            <input type="text" placeholder="Full Name" class="long-name">
+            <select class="long-select">
+                <option value="">Relationship</option>
+                <option *ngFor="let relate of relationship" [value]="relate">{{relate}}</option>
+            </select>
+            <input type="text" placeholder="Next of Kin Phone Number" class="long-name">
+            <textarea class="address" placeholder="Noex of Kin Address"></textarea>
+
+
+
+        </section>
+        <section class="form-generic" *ngIf="step == 4">
+            <select class="long-select">
+                <option value="">Sponsor Billing Policy</option>
+                <option *ngFor="let sponsor of sponsorBillingPolicy" [value]="sponsor">{{sponsor}}</option>
+            </select>
+        </section>
+    </section>
+    <div class="btns">
+        <button class="back" (click)="goBack()" *ngIf="step != 1">Back</button>
+        <button class="continue" (click)="continue()" type="submit">{{step == 4 ? 'Add Patient' : 'Continue'}}</button>
+    </div>
+</form>

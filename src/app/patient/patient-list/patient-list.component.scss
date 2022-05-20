@@ -1,0 +1,50 @@
+@import '../../scss/variables';
+
+.container {
+    padding: 0 16px;
+    .title {
+        font-size: $fs-24;
+        line-height: $lh-27;
+        margin: 2.5rem 0;
+    }
+    
+    table {
+        width: 100%;
+        border-radius: 12px ;
+        border-radius: 0px 0px 12px 12px;
+
+
+        .header-cell {
+            background-color: $header-background;
+            margin: 0 1.2rem;
+            font-size: $fs-12;
+            text-transform: uppercase;
+            color: $hint-blue;
+            font-weight: $fw-500;
+        }
+
+        .image-cell {
+            align-items: center;
+            display: flex;
+            padding: 1.2rem 0;
+            padding-left: 1.87rem;
+        }
+
+        .gender-tag {
+            text-align: center;
+            width: fit-content;
+            padding: 8px 20px;
+            border-radius: 8px;
+            background-color: $bg-off-white;
+        }
+
+        .view-profile {
+            margin: 0 1.87rem 0 0;
+            @extend.gender-tag;
+            background-color: $light-blue;
+            color: $text-light-blue;
+            cursor: pointer;
+        }
+
+    }
+}

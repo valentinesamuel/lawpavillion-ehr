@@ -1,0 +1,26 @@
+<section class="container">
+    <aside mode="side" opened class="sidebar">
+        <section class="top">
+            <div class="logo-container">
+                <img class="logo" src="../../../assets/icons/light-logo.svg" alt="logo">
+            </div>
+
+            <a class="link " [routerLink]="['/patients/patient']" [routerLinkActive]="['activeLink']"
+                [routerLinkActiveOptions]="{exact:
+true}"><img src="../../../assets/icons/patients.svg" alt="patients"> Patient
+                List</a>
+            <a class="link" [routerLink]="['/patients/add']" [routerLinkActive]="['activeLink']"
+                [routerLinkActiveOptions]="{exact:
+true}"><img src="../../../assets/icons/register-patient.svg" alt="patients">Register Patient</a>
+        </section>
+        <section class="bottom">
+            <p class="username">Darlene Robertson</p>
+            <a class="link"><img src="../../../assets/icons/log-off.svg" (click)="onLogout($event)" alt="log-out">
+                Logout</a>
+        </section>
+    </aside>
+    <main class="main-area">
+        <router-outlet></router-outlet>
+
+    </main>
+</section>
