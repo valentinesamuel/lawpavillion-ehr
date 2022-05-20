@@ -13,12 +13,6 @@ export class PatientService {
       .get<Patient[]>(`https://lawpavillion-patient-api.herokuapp.com/patients`)
       .pipe(
         map((patients) => {
-          //   const patient: Patient[] = [];
-          //   for (let key in data) {
-          //     posts.push({ ...data[key], id: key });
-          //   }
-          console.log(patients);
-
           return patients;
         })
       );

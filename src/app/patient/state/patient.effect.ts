@@ -13,7 +13,7 @@ export class PatientEffect {
       ofType(loadPatients),
       mergeMap((action) => {
         return this.patientService.getPatients().pipe(
-          map((patients) => {
+          map((patients) => {          
             return loadPatientsSuccess({ patients });
           })
         );
