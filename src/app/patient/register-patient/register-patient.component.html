@@ -1,4 +1,4 @@
-<section class="inner">
+<form class="inner">
     <ul>
 
         <li class="step" (click)="selectStep(1)" [ngClass]="step == 1 ? 'active-step' : ''"> 1<span
@@ -21,8 +21,8 @@
     </ul>
 
     <section class="content">
-        <section class="form" *ngIf="step == 1">
-            <form class="form-container">
+        <section class="form-1" *ngIf="step == 1">
+            <div class="form-container">
                 <div class="upload">
                     <div class="uploader">
                         <img src="../../../assets/icons/picture-upload.svg" alt="uploader">
@@ -32,18 +32,85 @@
                     </div>
                 </div>
                 <div class="form">
+                    <select class="select">
+                        <option class="option" *ngFor="let title of titles" [value]="title">{{title}}</option>
+                    </select>
+                    <input type="text" placeholder="Patient Surname" class="name">
+                    <input type="text" placeholder="Patient First Name" class="name">
+                    <input type="text" placeholder="Patient Middle Name" class="name">
+                    <input type="text" placeholder="Patient Phone Number" class="name">
+                    <input type="text" placeholder="Patient Email" class="name">
+                    <select class="gender-select">
+                        <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                    </select>
+                    <input class="name" type="text" placeholder="Date of Birth (mm/dd/yy)" onfocus="(this.type='date')">
+                    <div style="display: block;">
+                    </div>
+                    <textarea class="address" placeholder="Patient Address"></textarea>
+
 
                 </div>
-            </form>
+            </div>
         </section>
-        <section class="form" *ngIf="step == 2">
-            <p>step2</p>
+        <section class="form-generic" *ngIf="step == 2">
+            <section>
+                <select class="long-select">
+                    <option value="">Ethnicity</option>
+                    <option *ngFor="let ethic of ethnicities" [value]="ethic">{{ethic}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Religion</option>
+                    <option *ngFor="let relig of religion" [value]="relig">{{relig}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Marital Status</option>
+                    <option *ngFor="let maritalStats of maritalStatus" [value]="maritalStats">{{maritalStats}}</option>
+                </select>
+                <input type="text" placeholder="Occupation" class="long-name">
+                <input type="text" placeholder="Blood Group" class="short-name">
+                <input type="text" placeholder="Patient Type" class="long-name">
+                <select class="long-select">
+                    <option value="">Nationality</option>
+                    <option *ngFor="let nation of nationality" [value]="nation">{{nation}}</option>
+                </select>
+                <select class="gender-select">
+                    <option value="">State of Origin</option>
+                    <option *ngFor="let origin of stateOfOrigin" [value]="origin">{{origin}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">Local Government</option>
+                    <option *ngFor="let lga of localGovernment" [value]="lga">{{lga}}</option>
+                </select>
+                <select class="long-select">
+                    <option value="">State of Residence</option>
+                    <option *ngFor="let residentState of stateofResidence" [value]="residentState">{{residentState}}
+                    </option>
+                </select>
+            </section>
+          
         </section>
-        <section class="form" *ngIf="step == 3">
-            <p>step3</p>
+        <section class="form-generic" *ngIf="step == 3">
+
+            <input type="text" placeholder="Full Name" class="long-name">
+            <select class="long-select">
+                <option value="">Relationship</option>
+                <option *ngFor="let relate of relationship" [value]="relate">{{relate}}</option>
+            </select>
+            <input type="text" placeholder="Next of Kin Phone Number" class="long-name">
+            <textarea class="address" placeholder="Noex of Kin Address"></textarea>
+
+
+
         </section>
-        <section class="form" *ngIf="step == 4">
-            <p>step4</p>
+        <section class="form-generic" *ngIf="step == 4">
+            <select class="long-select">
+                <option value="">Sponsor Billing Policy</option>
+                <option *ngFor="let sponsor of sponsorBillingPolicy" [value]="sponsor">{{sponsor}}</option>
+            </select>
         </section>
     </section>
-</section>
+    <div class="btns">
+        <button class="back" *ngIf="step != 1">Back</button>
+        <button class="continue">Continue</button>
+    </div>
+</form>

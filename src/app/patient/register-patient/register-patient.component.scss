@@ -54,9 +54,18 @@ ul {
 
 .content {
     padding-top: 6.8rem;
+    padding-left: 34px;
+    margin-bottom: 2rem;
+    position: relative;
+    height: max-content;
+}
+
+.form-container {
+    display: flex;
 }
 
 .uploader {
+    margin-right: 34px;
     display: flex;
     flex-direction: column;
     background-image: url('../../../assets/images/uploader-doted.svg');
@@ -90,5 +99,128 @@ ul {
         font-weight: $fw-500;
         box-shadow: 0px 12px 24px -5px rgba(44, 97, 228, 0.33);
         border-radius: 8px;
+    }
+}
+
+.form-1 {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    .input-containers {
+        max-width: 900px;
+    }
+
+    .name {
+        margin-bottom: 28px;
+        border-radius: 8px;
+        border: 1px solid $form-outline;
+        padding: 1.5rem 1rem;
+        width: 22.75rem;
+        margin-right: 24px;
+
+        &::placeholder {
+            font-weight: $fw-400;
+            color: $placeholder;
+
+        }
+
+        &:focus-visible {
+            outline: 1px solid rgba(127, 168, 246, 0.6);
+        }
+    }
+
+    .default-option {
+        font-size: $fs-12;
+    }
+
+    .select {
+        @extend .name;
+        width: 150px;
+        background: url('../../../assets/icons/dark-down-arrow.svg')no-repeat right;
+        -webkit-appearance: none;
+        background-position-x: 120px;
+
+        &:focus-visible {
+            outline: 1px solid rgba(127, 168, 246, 0.6);
+        }
+
+    }
+
+    .gender-select {
+        @extend .select;
+        background: url('../../../assets/icons/down-arrow.svg')no-repeat right;
+        background-position-x: 120px;
+        color: $placeholder;
+    }
+
+    .address {
+        position: relative;
+        @extend .name;
+        width: 30.87rem;
+        height: 10.93rem;
+        margin-bottom: 7.5rem;
+    }
+
+    .short-name {
+        @extend .name;
+        width: 14.71rem;
+    }
+
+    .long-name {
+        @extend .name;
+        width: 24.95rem;
+    }
+
+    .long-select {
+        @extend .gender-select;
+        width: 15.87rem;
+        background-position-x: 13.87rem;
+    }
+
+    .short-select {
+        @extend .gender-select;
+        width: 12.87rem;
+    }
+}
+
+.continue-btn {
+    background-color: $btn-blue;
+    display: flex;
+    justify-content: end;
+
+    padding: 1.3rem 6rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: $fw-600;
+    font-size: $fs-18;
+    color: $white;
+}
+
+.form-generic {
+    @extend .form-1;
+
+}
+
+.btns {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    bottom: 3%;
+    right: 6%;
+
+    .continue {
+
+        position: sticky;
+        @extend .continue-btn;
+    }
+
+    .back {
+        @extend .continue-btn;
+
+        margin-right: 40px;
+        background-color: transparent;
+        color: $btn-blue;
+        border: 1px solid #5E8CEE;
     }
 }

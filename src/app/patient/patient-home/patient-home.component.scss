@@ -35,12 +35,16 @@
     padding: 1.2rem 1.3rem;
     font-size: $fs-14;
     margin: 1rem 0;
-    background-color: $off-white-ten;
     border-radius: 0.5rem;
-
+    
+    
     img {
         margin-right: 0.9rem;
     }
+}
+.activeLink{
+    
+    background-color: $off-white-ten;
 }
 
 
